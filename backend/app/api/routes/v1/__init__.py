@@ -74,3 +74,8 @@ v1_router.include_router(
 v1_router.include_router(deprecated_webhooks_router, tags=["System: Provider Webhooks (Deprecated)"], deprecated=True)
 
 __all__ = ["v1_router"]
+
+
+@v1_router.get("/health", tags=["Health"])
+async def health_check():
+    return {"status": "ok"}
